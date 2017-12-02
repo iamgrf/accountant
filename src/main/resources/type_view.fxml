@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.accountant.controller.impl.TypeController" minHeight="300" minWidth="500">
+    <HBox spacing="8">
+        <padding>
+            <Insets top="8" left="8" bottom="8"></Insets>
+        </padding>
+        <TextField fx:id="necessaryTextField"></TextField>
+        <Button text="添加必须消费类型" onAction="#addNecessary"></Button>
+    </HBox>
+    <GridPane vgap="8" hgap="8" fx:id="necessary">
+        <padding>
+            <Insets left="8" bottom="16"></Insets>
+        </padding>
+    </GridPane>
+    <Separator></Separator>
+    <HBox spacing="8">
+        <padding>
+            <Insets top="8" left="8" bottom="8"></Insets>
+        </padding>
+        <TextField fx:id="notNecessaryTextField"></TextField>
+        <Button text="添加非必须消费类型" onAction="#addNotNecessary"></Button>
+    </HBox>
+    <GridPane vgap="8" hgap="8" fx:id="notNecessary">
+        <padding>
+            <Insets left="8" bottom="16"></Insets>
+        </padding>
+    </GridPane>
+</VBox>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.accountant.controller.impl.ConsumeListController" minHeight="500">
+    <MenuBar>
+        <Menu text="消费管理">
+            <MenuItem text="添加消费" onAction="#openAddConsumeUI"></MenuItem>
+        </Menu>
+        <Menu text="消费类型">
+            <MenuItem text="消费类型管理" onAction="#openTypeUI"></MenuItem>
+        </Menu>
+        <Menu text="数据统计">
+            <MenuItem text="饼图统计" onAction="#openPieChartUI"></MenuItem>
+            <MenuItem text="折线图统计" onAction="#openLineChartUI"></MenuItem>
+        </Menu>
+        <Menu text="关于">
+            <MenuItem text="版本"></MenuItem>
+        </Menu>
+    </MenuBar>
+
+    <TableView fx:id="tableView" minHeight="520">
+        <columns>
+            <TableColumn text="序号">
+                <cellValueFactory>
+                    <PropertyValueFactory property="num" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="大类型">
+                <cellValueFactory>
+                    <PropertyValueFactory property="v" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="小类型">
+                <cellValueFactory>
+                    <PropertyValueFactory property="typeName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="商品名">
+                <cellValueFactory>
+                    <PropertyValueFactory property="item" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="录入人">
+                <cellValueFactory>
+                    <PropertyValueFactory property="realName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="数量">
+                <cellValueFactory>
+                    <PropertyValueFactory property="number" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="单价">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="金额">
+                <cellValueFactory>
+                    <PropertyValueFactory property="amount" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="消费人">
+                <cellValueFactory>
+                    <PropertyValueFactory property="consumer" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="消费时间">
+                <cellValueFactory>
+                    <PropertyValueFactory property="consumeDate" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="消费地点">
+                <cellValueFactory>
+                    <PropertyValueFactory property="consumeAddress" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="备注">
+                <cellValueFactory>
+                    <PropertyValueFactory property="remark" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="录入时间">
+                <cellValueFactory>
+                    <PropertyValueFactory property="createDate" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <Pagination fx:id="pagination"></Pagination>
+</VBox>

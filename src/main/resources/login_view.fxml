@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.accountant.controller.impl.LoginController" vgap="8" hgap="8" minHeight="200" minWidth="300">
+    <Label text="帐号：" GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="accountTextField"></TextField>
+    <Label text="密码：" GridPane.columnIndex="0" GridPane.rowIndex="1"></Label>
+    <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="pwdPasswordField"></PasswordField>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2">
+        <Button text="登录" minWidth="150" onAction="#login"></Button>
+    </HBox>
+</GridPane>
