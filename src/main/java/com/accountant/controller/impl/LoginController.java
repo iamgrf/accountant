@@ -4,6 +4,7 @@ import com.accountant.controller.Controller;
 import com.accountant.service.UserService;
 import com.accountant.ui.ConsumeListUI;
 import com.accountant.ui.LoginUI;
+import com.accountant.util.LoginEr;
 import com.accountant.util.ParsResult;
 import com.accountant.util.StringUtils;
 import com.accountant.util.UIManager;
@@ -49,8 +50,12 @@ public class LoginController implements Controller {
             return;
         }
         Map<String, Object> result = userService.login(accountTextField.getText(), pwdPasswordField.getText());
+        Map<String, String> data = (Map<String, String>)result.get("data");
         if (ParsResult.isOk(result)){
             try {
+                LoginEr.setId(data.get("id"));
+                LoginEr.setAccount(data.get("account"));
+                LoginEr.setRealName(data.get("real_name"));
                 new ConsumeListUI();
                 UIManager.closeUI(UIManager.LOGIN_UI);
             } catch (IOException e) {

@@ -104,7 +104,7 @@ public class AddConsumeController implements Controller {
             }
             consumePO = new ConsumePO();
             consumePO.setTypeId(choiceBoxChild.getValue().toString().split("_")[0]);
-            consumePO.setUserId("1");
+            consumePO.setUserId(LoginEr.getId());
             consumePO.setItem(textFields.get(i).get(0).getText());
             consumePO.setAmount(textFields.get(i).get(1).getText());
             consumePO.setNumber(textFields.get(i).get(2).getText());

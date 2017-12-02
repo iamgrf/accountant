@@ -7,9 +7,10 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.accountant.controller.impl.ConsumeListController" minHeight="500">
+      fx:controller="com.accountant.controller.impl.ConsumeListController" minHeight="700">
     <MenuBar>
         <Menu text="消费管理">
             <MenuItem text="添加消费" onAction="#openAddConsumeUI"></MenuItem>
@@ -26,7 +27,17 @@
         </Menu>
     </MenuBar>
 
-    <TableView fx:id="tableView" minHeight="520">
+    <HBox spacing="8">
+        <padding>
+            <Insets top="3" left="3" bottom="3"></Insets>
+        </padding>
+        <DatePicker promptText="开始时间" fx:id="startDateDatePicker"></DatePicker>
+        <DatePicker promptText="结束时间" fx:id="endDateDatePicker"></DatePicker>
+        <ChoiceBox fx:id="typeChoiceBox"></ChoiceBox>
+        <Button text="查询" onAction="#initData"/>
+    </HBox>
+
+    <TableView fx:id="tableView" minHeight="470">
         <columns>
             <TableColumn text="序号">
                 <cellValueFactory>

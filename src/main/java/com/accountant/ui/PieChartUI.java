@@ -113,23 +113,23 @@ public class PieChartUI {
 
         pieChart = new PieChart();
         pieChart.setTitle("类型统计");
-        pieChart.setLabelLineLength(10);
-        pieChart.setLegendSide(Side.LEFT);
+        pieChart.setLabelLineLength(8);
+        pieChart.setLegendSide(Side.RIGHT);
         vBox.getChildren().add(pieChart);
 
         mustPieChart = new PieChart();
         mustPieChart.setTitle("必须统计");
-        mustPieChart.setLabelLineLength(10);
-        mustPieChart.setLegendSide(Side.LEFT);
+        mustPieChart.setLabelLineLength(8);
+        mustPieChart.setLegendSide(Side.RIGHT);
         vBox.getChildren().add(mustPieChart);
 
         notMustPieChart = new PieChart();
         notMustPieChart.setTitle("非必须统计");
-        notMustPieChart.setLabelLineLength(10);
-        notMustPieChart.setLegendSide(Side.LEFT);
+        notMustPieChart.setLabelLineLength(8);
+        notMustPieChart.setLegendSide(Side.RIGHT);
         vBox.getChildren().add(notMustPieChart);
 
-        Scene scene  = new Scene(vBox,800,600);
+        Scene scene  = new Scene(vBox,800,650);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

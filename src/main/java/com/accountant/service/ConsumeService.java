@@ -22,8 +22,8 @@ public class ConsumeService {
         return ResultUtil.successful();
     }
 
-    public Map<String,Object> list(PageUtil pageUtil) {
-        consumeDomain.list(pageUtil);
+    public Map<String,Object> list(String startDate, String endDate, String type, PageUtil pageUtil) {
+        consumeDomain.list(startDate, endDate, type, pageUtil);
         return ResultUtil.successful(pageUtil);
     }
 }

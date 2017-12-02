@@ -7,13 +7,12 @@ import com.accountant.ui.*;
 import com.accountant.util.PageUtil;
 import com.accountant.util.ParsResult;
 import com.accountant.util.StringUtils;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.Pagination;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
@@ -26,6 +25,12 @@ public class ConsumeListController implements Controller {
 
     private ConsumeService consumeService = new ConsumeService();
 
+    @FXML
+    private DatePicker startDateDatePicker;
+    @FXML
+    private DatePicker endDateDatePicker;
+    @FXML
+    private ChoiceBox typeChoiceBox;
     @FXML
     private TableView<ConsumeListModel> tableView;
     @FXML
@@ -61,6 +66,9 @@ public class ConsumeListController implements Controller {
 
     @Override
     public void initUI(){
+
+        typeChoiceBox.setItems(FXCollections.observableArrayList("所有", "必须", "非必须"));
+
         pagination.setPageFactory(new Callback<Integer, Node>() {
             @Override
             public Node call(Integer param) {
@@ -86,7 +94,23 @@ public class ConsumeListController implements Controller {
      * 填充表数据
      */
     public void setTableDate(PageUtil pageUtil){
-        Map<String, Object> data = consumeService.list(pageUtil);
+        String startDate = null;
+        String endDate = null;
+        String type = null;
+        if (startDateDatePicker.getValue() != null){
+            startDate = startDateDatePicker.getValue().toString();
+        }
+        if (endDateDatePicker.getValue() != null){
+            endDate = endDateDatePicker.getValue().toString();
+        }
+        if (typeChoiceBox.getValue() != null){
+            if ("必须".equals(typeChoiceBox.getValue().toString())){
+                type = "0";
+            }else if("非必须".equals(typeChoiceBox.getValue().toString())){
+                type = "1";
+            }
+        }
+        Map<String, Object> data = consumeService.list(startDate, endDate, type, pageUtil);
         if (ParsResult.isOk(data)){
             pageUtil = (PageUtil)data.get("data");
             pagination.setPageCount(pageUtil.getPages());

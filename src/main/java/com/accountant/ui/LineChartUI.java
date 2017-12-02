@@ -65,7 +65,7 @@ public class LineChartUI {
         series.setName("消费");
         lineChart.getData().clear();
         for (int i = 0; i < data.size(); i++) {
-            series.getData().add(new XYChart.Data(String.valueOf(data.get(i).get("consumeDate")), Float.valueOf(String.valueOf(data.get(i).get("totalAmount")))));
+            series.getData().add(new XYChart.Data(String.valueOf(data.get(i).get("consumeDate"))+" "+String.valueOf(data.get(i).get("totalAmount"))+"元", Float.valueOf(String.valueOf(data.get(i).get("totalAmount")))));
         }
         lineChart.getData().add(series);
 
@@ -119,7 +119,6 @@ public class LineChartUI {
         lineChart = new LineChart<String, Number>(xAxis,yAxis);
         lineChart.setTitle("折线图");
         vBox.getChildren().add(lineChart);
-
 
         Scene scene  = new Scene(vBox,800,600);
         primaryStage.setScene(scene);
