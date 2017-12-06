@@ -57,7 +57,6 @@ public class AddConsumeController implements Controller {
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 Map<String, Object> data = typeService.list("" + newValue);
                 List<Map<String, Object>> datas = (List<Map<String, Object>>)data.get("data");
-                System.out.println(datas);
                 choiceBoxChildIds = new Integer[datas.size()];
                 String[] v = new String[datas.size()];
                 for (int i = 0; i < datas.size(); i++) {
