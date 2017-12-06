@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.shape.Sphere?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.accountant.controller.impl.AddConsumeController" minHeight="300" minWidth="500">
@@ -23,8 +19,8 @@
             <Insets left="8" top="3" bottom="3"></Insets>
         </padding>
         <TextField promptText="消费者" fx:id="consumerTextField"></TextField>
-        <DatePicker promptText="消费日期" fx:id="consumeDateDatePicker"></DatePicker>
         <TextField promptText="消费地点" fx:id="consumeAddressTextField"></TextField>
+        <DatePicker promptText="消费日期" fx:id="consumeDateDatePicker"></DatePicker>
 
     </HBox>
     <Separator></Separator>

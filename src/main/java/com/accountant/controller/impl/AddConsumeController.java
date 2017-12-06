@@ -20,10 +20,7 @@ import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AddConsumeController implements Controller {
 
@@ -33,6 +30,7 @@ public class AddConsumeController implements Controller {
     private ChoiceBox choiceBoxParent;
     @FXML
     private ChoiceBox choiceBoxChild;
+    private Integer[] choiceBoxChildIds = null;
     @FXML
     private TextField consumerTextField;
     @FXML
@@ -59,9 +57,12 @@ public class AddConsumeController implements Controller {
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 Map<String, Object> data = typeService.list("" + newValue);
                 List<Map<String, Object>> datas = (List<Map<String, Object>>)data.get("data");
+                System.out.println(datas);
+                choiceBoxChildIds = new Integer[datas.size()];
                 String[] v = new String[datas.size()];
                 for (int i = 0; i < datas.size(); i++) {
-                    v[i] = String.valueOf(datas.get(i).get("id")+"_"+datas.get(i).get("name"));
+                    choiceBoxChildIds[i] = Integer.valueOf(String.valueOf(datas.get(i).get("id")));
+                    v[i] = String.valueOf(datas.get(i).get("name"));
                 }
                 choiceBoxChild.setItems(FXCollections.observableArrayList(v));
             }
@@ -88,6 +89,7 @@ public class AddConsumeController implements Controller {
 
     @FXML
     public void addConsume(){
+
         ConsumePO consumePO = null;
         if (choiceBoxChild.getValue() == null || StringUtils.isEmpty(choiceBoxChild.getValue().toString())){
             ParsResult.toast("请选择类型.");
@@ -103,7 +105,7 @@ public class AddConsumeController implements Controller {
                 continue;
             }
             consumePO = new ConsumePO();
-            consumePO.setTypeId(choiceBoxChild.getValue().toString().split("_")[0]);
+            consumePO.setTypeId(""+choiceBoxChildIds[choiceBoxChild.getSelectionModel().getSelectedIndex()]);
             consumePO.setUserId(LoginEr.getId());
             consumePO.setItem(textFields.get(i).get(0).getText());
             consumePO.setAmount(textFields.get(i).get(1).getText());

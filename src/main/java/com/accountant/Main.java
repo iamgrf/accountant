@@ -1,9 +1,6 @@
 package com.accountant;
 
-import com.accountant.ui.ConsumeListUI;
-import com.accountant.ui.LineChartUI;
-import com.accountant.ui.LoginUI;
-import com.accountant.ui.PieChartUI;
+import com.accountant.ui.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -18,6 +15,6 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        new LoginUI(primaryStage);
+        new AddConsumeUI();
     }
 }
