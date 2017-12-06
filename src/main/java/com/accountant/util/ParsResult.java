@@ -1,8 +1,10 @@
 package com.accountant.util;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class ParsResult {
 
@@ -20,6 +22,17 @@ public class ParsResult {
         information.setTitle("系统提示");
         information.setHeaderText("");
         information.show();
+    }
+
+    public static Boolean confirmation(String msg){
+        Alert information = new Alert(Alert.AlertType.CONFIRMATION, msg);
+        information.setTitle("系统提示");
+        information.setHeaderText("");
+        Optional<ButtonType> result = information.showAndWait();
+        if (result.get() == ButtonType.OK){
+            return true;
+        }
+        return false;
     }
 
 }
